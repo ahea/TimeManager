@@ -14,11 +14,11 @@ import java.util.List;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull
-    @Size(min = 3, max = 10)
+    @Size(min = 3, max = 20)
     private String name;
 
     @Column(unique = true)
@@ -27,7 +27,7 @@ public class User {
     private String email;
 
     @NotNull
-    @Size(min =  5, max = 20)
+    @Column(columnDefinition = "LONGBLOB")
     private String password;
 
     @OneToMany(mappedBy = "owner")

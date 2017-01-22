@@ -3,8 +3,19 @@
 <head>
     <title>Time manager | Home</title>
     <!--/*/ <th:block th:include="fragments/header :: head"></th:block> /*/-->
+    <link href="../static/css/slowappear.css"
+          th:href="@{/css/slowappear.css}" rel="stylesheet" media="screen"/>
 </head>
 <body>
-    Test
+<div class="login">
+    <h1>Time manager</h1>
+    <h2>Login</h2>
+    <form method="post">
+        <input type="text" name="u" placeholder="Username" required="required" />
+        <input type="password" name="p" placeholder="Password" required="required" />
+        <a href="#" th:href="@{/products}" style="text-decoration:none;"><button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button></a>
+        <a href="#" th:href="@{/signup}" style="text-decoration:none;"><button type="submit" class="btn btn-primary btn-block btn-large">I am new.</button></a>
+    </form>
+</div>
 </body>
 </html>

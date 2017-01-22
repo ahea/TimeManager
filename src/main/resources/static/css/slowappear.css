@@ -1,0 +1,10 @@
+body {
+    animation-name:img-ani;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+}
+
+@keyframes img-ani {
+    from{opacity:0;}
+    to{opacity: 1;}
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--/*/ <th:block th:include="fragments/header :: head"></th:block> /*/-->
+    <title>Time Manager | Sign Up</title>
+</head>
+<body>
+<div class="login">
+    <h1>Time manager</h1>
+    <h2>Registration</h2>
+    <div>
+        <form action="signup" th:action="@{/signup}" role="form" th:object="${user}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="text" name="u" placeholder="Username" required="required" th:field="*{name}"/>
+            <input type="text" name="e" placeholder="Email" required="required" th:field="*{email}"/>
+            <input type="password" name="p" placeholder="Password" required="required" th:field="*{password}"/>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Sign up.</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
