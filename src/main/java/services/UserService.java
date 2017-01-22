@@ -1,6 +1,7 @@
-package Services;
+package services;
 
 import models.User;
+import validation.EmailExistsException;
 
 /**
  * Created by aleksei on 21.01.17.
@@ -13,7 +14,7 @@ public interface UserService {
 
     User getUserByEmail(String email);
 
-    void saveUser(User user);
+    void saveUser(User user) throws EmailExistsException;
 
     void deleteUserById(Integer id);
 

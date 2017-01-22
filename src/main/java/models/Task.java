@@ -20,7 +20,7 @@ public class Task {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinTable(name = "owner_id")
+    @JoinColumn(name = "owner_id")
     private User owner;
 
     @NotNull
@@ -52,6 +52,14 @@ public class Task {
 */
     public long getId() {
         return id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public void setId(long id) {
