@@ -1,4 +1,4 @@
-package models;
+package com.models;
 
 import org.hibernate.annotations.GeneratorType;
 

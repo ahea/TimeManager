@@ -1,12 +1,14 @@
-package services;
+package com.services;
 
-import models.Task;
+import com.models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import repositories.TaskRepository;
+import com.repositories.TaskRepository;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by aleksei on 21.01.17.
  */
+@Service
 public class TaskServiceImpl implements TaskService{
 
     private TaskRepository taskRepository;

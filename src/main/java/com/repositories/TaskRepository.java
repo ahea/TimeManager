@@ -1,7 +1,8 @@
-package repositories;
+package com.repositories;
+
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import models.Task;
+import com.models.Task;
 
 /**
  * Created by aleksei on 21.01.17.

@@ -1,14 +1,16 @@
-package services;
+package com.services;
 
-import models.User;
+import com.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import repositories.UserRepository;
-import validation.EmailExistsException;
+import com.repositories.UserRepository;
+import com.validation.EmailExistsException;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by aleksei on 21.01.17.
  */
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -68,5 +70,4 @@ public class UserServiceImpl implements UserService {
             return false;
         return true;
     }
-
 }

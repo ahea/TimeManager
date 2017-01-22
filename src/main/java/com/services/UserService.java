@@ -1,7 +1,7 @@
-package services;
+package com.services;
 
-import models.User;
-import validation.EmailExistsException;
+import com.models.User;
+import com.validation.EmailExistsException;
 
 /**
  * Created by aleksei on 21.01.17.

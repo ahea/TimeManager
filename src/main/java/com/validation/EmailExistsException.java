@@ -1,4 +1,4 @@
-package validation;
+package com.validation;
 
 /**
  * Created by aleksei on 21.01.17.

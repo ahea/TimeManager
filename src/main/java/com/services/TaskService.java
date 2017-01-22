@@ -1,6 +1,6 @@
-package services;
+package com.services;
 
-import models.Task;
+import com.models.Task;
 
 /**
  * Created by aleksei on 21.01.17.
