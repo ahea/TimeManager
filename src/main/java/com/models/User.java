@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Collection;
 
 /**
  * Created by aleksei on 21.01.17.
@@ -32,19 +33,15 @@ public class User {
 
     @OneToMany(mappedBy = "owner")
     private List<Task> tasks;
-/*
-    public User(){}
 
-    public User(long id){
-        this.id = id;
-    }
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Collection<Role> roles;
 
-    public User(String name, String email, String password){
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-*/
     public long getId() {
         return id;
     }
@@ -84,4 +81,13 @@ public class User {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+    public void setRoles(Collection<Role> roles) {
+        this.roles = roles;
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
 }

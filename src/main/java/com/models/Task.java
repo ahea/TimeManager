@@ -34,22 +34,7 @@ public class Task {
 
     @NotNull
     boolean completed;
-/*
-    public Task(){}
 
-    public Task(long id){
-        this.id = id;
-    }
-
-    public Task(User owner, String header, String description, Date date,
-                boolean completed){
-        this.owner = owner;
-        this.header = header;
-        this.description = description;
-        this.date = date;
-        this.completed = completed;
-    }
-*/
     public long getId() {
         return id;
     }

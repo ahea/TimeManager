@@ -50,4 +50,6 @@ public class UserController {
         }catch (EmailExistsException e){}
         return "redirect:/";
     }
+
+    //@RequestMapping(value = "/")
 }
