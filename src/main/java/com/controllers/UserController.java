@@ -48,8 +48,11 @@ public class UserController {
         try {
             userService.saveUser(user);
         }catch (EmailExistsException e){}
-        return "redirect:/";
+        return "redirect:/?signedup";
     }
 
-    //@RequestMapping(value = "/")
+    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+    public String dashboard(User user){
+        return "dashboard";
+    }
 }
