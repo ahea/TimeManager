@@ -32,7 +32,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "owner")
-    private List<Task> tasks;
+    private Collection<Task> tasks;
 
     @ManyToMany
     @JoinTable(
@@ -74,11 +74,11 @@ public class User {
         this.password = password;
     }
 
-    public List<Task> getTasks() {
+    public Collection<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<Task> tasks) {
+    public void setTasks(Collection<Task> tasks) {
         this.tasks = tasks;
     }
 

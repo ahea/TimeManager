@@ -5,6 +5,12 @@
     <title>Time Manager | Dashboard</title>
 </head>
 <body>
-    LOGIN SUCCESSFUL
+    <div>Hello, <span th:text="${name}">username</span></div>
+    <div th:each="task: ${tasks}">
+        id: <span th:text="${task.id}">Id</span>
+        header: <span th:text="${task.header}">header</span>
+        description: <span th:text="${task.description}">description</span>
+        date: <span th:text="${task.date}">date</span>
+    </div>
 </body>
 </html>

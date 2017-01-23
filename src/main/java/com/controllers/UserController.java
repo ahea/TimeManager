@@ -50,9 +50,4 @@ public class UserController {
         }catch (EmailExistsException e){}
         return "redirect:/?signedup";
     }
-
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public String dashboard(User user){
-        return "dashboard";
-    }
 }
