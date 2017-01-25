@@ -7,20 +7,32 @@
     <title>Time Manager | Dashboard</title>
 </head>
 <body>
-    <div class="hello">
+    <div class="centered-text">
         <h2>Hello, <span th:text="${name}">username</span></h2>
     </div>
     <div class="out">
-        <output class="header"><b>Header</b></output>
-        <output class="description"><b>Description</b></output>
-        <output class="date"><b>Date</b></output>
-        <output class="completed"><b>Done</b></output>
+        <a th:href="@{dashboard/new}" style="text-decoration:none; "><button type="submit" class="menubut btn btn-primary btn-block btn-large">New</button></a>
+        <a th:href="@{/deleteAll}" style="text-decoration:none; "><button type="submit" class="menubut btn btn-primary btn-block btn-large">Delete All</button></a>
+        <a th:href="@{/logout}" style="text-decoration:none; "><button type="submit" class="menubut btn btn-primary btn-block btn-large">Logout</button></a>
     </div>
-    <div class="out" th:each="task: ${tasks}">
-        <output class="header" th:text="${task.header}">header</output>
-        <output class="description" th:text="${task.description}">description</output>
-        <output class="date" th:text="${task.date}">date</output>
-        <output class="completed" th:text="${task.completed}">completed</output>
+    <div th:if="${not #lists.isEmpty(tasks)}">
+        <div class="out">
+            <output class="header" style="text-align: center; background: #696969;"><b>Header</b></output>
+            <output class="description" style="text-align: center; background: #696969;"><b>Description</b></output>
+            <output class="date" style="text-align: center; background: #696969;"><b>Date</b></output>
+            <output class="completed" style="text-align: center; background: #696969;"><b>Done</b></output>
+        </div>
+        <div class="out" th:each="task: ${tasks}">
+            <output class="header" th:text="${task.header}">header</output>
+            <output class="description" th:text="${task.description}">description</output>
+            <output class="date" th:text="${#dates.format(task.date, 'dd-MMM-yyyy')}">date</output>
+            <output class="completed" th:text="${task.completed}">completed</output>
+            <a href="#" th:href="${'/dashboard/edit/' + task.id}" style="text-decoration:none; "><button type="submit" class="editbut btn btn-primary btn-block btn-large">Edit</button></a>
+            <a href="#" th:href="${'/dashboard/delete/' + task.id}" style="text-decoration:none; "><button type="submit" class="editbut btn btn-primary btn-block btn-large">Delete</button></a>
+        </div>
+    </div>
+    <div class="centered-text" th:if="${#lists.isEmpty(tasks)}">
+        <h2>You have no tasks now</h2>
     </div>
 </body>
 </html>
