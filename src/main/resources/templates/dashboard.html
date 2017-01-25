@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
     <!--/*/ <th:block th:include="fragments/header :: head"></th:block> /*/-->
+    <link href="../static/css/slowappear.css"
+          th:href="@{/css/slowappear.css}" rel="stylesheet" media="screen"/>
     <title>Time Manager | Dashboard</title>
 </head>
 <body>
-    <div>Hello, <span th:text="${name}">username</span></div>
-    <div th:each="task: ${tasks}">
-        id: <span th:text="${task.id}">Id</span>
-        header: <span th:text="${task.header}">header</span>
-        description: <span th:text="${task.description}">description</span>
-        date: <span th:text="${task.date}">date</span>
+    <div class="hello">
+        <h2>Hello, <span th:text="${name}">username</span></h2>
+    </div>
+    <div class="out">
+        <output class="header"><b>Header</b></output>
+        <output class="description"><b>Description</b></output>
+        <output class="date"><b>Date</b></output>
+        <output class="completed"><b>Done</b></output>
+    </div>
+    <div class="out" th:each="task: ${tasks}">
+        <output class="header" th:text="${task.header}">header</output>
+        <output class="description" th:text="${task.description}">description</output>
+        <output class="date" th:text="${task.date}">date</output>
+        <output class="completed" th:text="${task.completed}">completed</output>
     </div>
 </body>
 </html>
