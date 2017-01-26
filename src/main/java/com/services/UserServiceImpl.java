@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
     public void setRoleRepository(RoleRepository roleRepository){
         this.roleRepository = roleRepository;
     }
+
     @Override
     public Iterable<User> getAllUsers(){
         return userRepository.findAll();

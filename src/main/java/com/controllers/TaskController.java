@@ -6,12 +6,17 @@ import com.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by aleksei on 23.01.17.
@@ -41,5 +46,34 @@ public class TaskController {
         model.addAttribute("name", name);
         model.addAttribute("tasks", tasks);
         return "dashboard";
+    }
+
+    @RequestMapping(value = "/dashboard/new", method = RequestMethod.GET)
+    String newTask(Model model){
+        Task task = new Task();
+        task.setDate(new Date());
+        model.addAttribute("task", task);
+        return "taskform";
+    }
+
+    @RequestMapping(value = "/dashboard/new", method = RequestMethod.POST)
+    String saveTask(@RequestParam(value ="taskCompleted", defaultValue = "false") boolean taskCompleted , Principal principal, @Valid Task task, BindingResult bindingResult){
+        if( bindingResult.hasErrors())
+        {
+            System.out.println(bindingResult);
+        }
+        task.setOwner(userService.getUserByEmail(
+                principal.getName()));
+        task.setCompleted(taskCompleted);
+        System.out.println(task.getOwner().getEmail());
+        taskService.saveTask(task);
+        return "redirect:/dashboard";
+    }
+
+    @RequestMapping(value = "/dashboard/edit/{id}", method = RequestMethod.GET)
+    String editTask(@PathVariable Integer id, Task task, Model model){
+        task = taskService.getTaskById(id);
+        model.addAttribute("task", task);
+        return "taskform";
     }
 }

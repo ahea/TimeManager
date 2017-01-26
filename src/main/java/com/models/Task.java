@@ -1,6 +1,7 @@
 package com.models;
 
 import org.hibernate.annotations.GeneratorType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,7 +18,7 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
@@ -30,12 +31,14 @@ public class Task {
     private String description;
 
     @NotNull
-    Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
     @NotNull
-    boolean completed;
+    @Column(columnDefinition="tinyint(1) default 0")
+    private boolean completed;
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -47,7 +50,7 @@ public class Task {
         this.owner = owner;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

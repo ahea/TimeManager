@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--/*/ <th:block th:include="fragments/header :: head"></th:block> /*/-->
+    <title>New Task</title>
+</head>
+<body>
+    <div class="centered-text">
+        <h2>Task information</h2>
+    </div>
+    <form th:object="${task}" action="/dashboard/new" th:action="@{/dashboard/new}" role="form" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="formdiv">
+            <output class="formheader"><b>Header</b></output>
+        </div>
+        <div>
+            <input type="text" class="form-control" th:field="*{header}"/>
+        </div>
+        <div class="formdiv">
+            <output class="formheader"><b>Description</b></output>
+        </div>
+        <div>
+            <input type="text" class="form-control" th:field="*{description}"/>
+        </div>
+        <div class="formdiv">
+            <output class="formheader"><b>Date</b></output>
+        </div>
+        <div>
+            <input type="date" class="form-control" th:field="*{date}"/>
+        </div>
+        <div class="formdiv">
+            <output class="formheader"><b>Done</b></output>
+        </div>
+        <div style="width: 4%; margin-bottom: 20px;">
+            <input type="checkbox" name="taskCompleted"/>
+        </div>
+        <div style="width: 8%">
+            <a href="#" th:href="@{/dashboard/new}" style="text-decoration:none;"><button type="submit" class="btn btn-primary btn-block btn-large">Submit</button></a>
+        </div>
+    </form>
+</body>
+</html>
