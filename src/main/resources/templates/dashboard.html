@@ -26,7 +26,10 @@
             <output class="header" th:text="${task.header}">header</output>
             <output class="description" style="width: 45%;" th:text="${task.description}">description</output>
             <output class="date" th:text="${#dates.format(task.date, 'dd-MMM-yyyy')}">date</output>
-            <output class="completed" th:text="${task.completed}">completed</output>
+            <output class="completed" th:if="${task.completed}"
+                    th:text="${task.completed}" style="color: #32CD32;"> completed </output>
+            <output class="completed" th:if="${not task.completed}"
+                    th:text="${task.completed}" style="color: #FF6347;"> completed </output>
             <a href="#" th:href="${'/dashboard/done/' + task.id}" style="text-decoration:none; ">
                 <button type="submit" class="editbut btn btn-primary btn-block btn-large">
                     <span th:if="${not task.completed}">Done</span>
