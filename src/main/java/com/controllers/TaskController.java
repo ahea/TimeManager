@@ -105,4 +105,9 @@ public class TaskController {
         taskService.saveTask(task);
         return "redirect:/dashboard";
     }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    String logout(){
+        return "home";
+    }
 }
