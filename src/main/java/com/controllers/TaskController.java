@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -75,5 +76,21 @@ public class TaskController {
         task = taskService.getTaskById(id);
         model.addAttribute("task", task);
         return "taskform";
+    }
+
+    @RequestMapping(value = "/dashboard/delete/{id}", method = RequestMethod.GET)
+    String deleteTask(@PathVariable Integer id){
+        taskService.deleteTaskById(id);
+        return "redirect:/dashboard";
+    }
+
+    @RequestMapping(value = "/deleteAll", method = RequestMethod.GET)
+    String deleteAllTasks(Principal principal){
+        String email = principal.getName();
+        Collection<Task> tasks = userService.getUserByEmail(email).getTasks();
+        for (Task task : tasks) {
+            taskService.deleteTask(task);
+        }
+        return "redirect:/dashboard";
     }
 }
