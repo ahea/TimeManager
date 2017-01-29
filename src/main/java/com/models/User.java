@@ -32,6 +32,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "owner")
+    @OrderBy("date")
     private Collection<Task> tasks;
 
     @ManyToMany

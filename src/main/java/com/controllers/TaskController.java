@@ -93,4 +93,16 @@ public class TaskController {
         }
         return "redirect:/dashboard";
     }
+
+    @RequestMapping(value = "/dashboard/done/{id}", method = RequestMethod.GET)
+    String markDone(@PathVariable Integer id){
+        Task task = taskService.getTaskById(id);
+        if (task.isCompleted()){
+            task.setCompleted(false);
+        } else {
+            task.setCompleted(true);
+        }
+        taskService.saveTask(task);
+        return "redirect:/dashboard";
+    }
 }
