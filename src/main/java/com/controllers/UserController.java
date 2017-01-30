@@ -47,7 +47,9 @@ public class UserController {
     public String saveUser(User user){
         try {
             userService.saveUser(user);
-        }catch (EmailExistsException e){}
+        }catch (EmailExistsException e){
+            return "redirect:/signup?error";
+        }
         return "redirect:/?signedup";
     }
 }

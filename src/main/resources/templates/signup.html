@@ -10,6 +10,10 @@
     <h2>Registration</h2>
     <div>
         <form action="signup" th:action="@{/signup}" role="form" th:object="${user}" method="post">
+            <div th:if="${param.error}" class="alert alert-danger">
+                <div align="center"><strong>Email already exists</strong></div>
+                <div align="center"><strong>Try again</strong></div>
+            </div>
             <input type="hidden" th:field="*{id}"/>
             <input type="text" name="u" placeholder="Username" required="required" th:field="*{name}"/>
             <input type="text" name="e" placeholder="Email" required="required" th:field="*{email}"/>
