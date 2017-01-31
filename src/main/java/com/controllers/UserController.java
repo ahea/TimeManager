@@ -44,11 +44,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String saveUser(User user){
+    public String saveUser(@Valid User user, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return "redirect:/signup?fieldError";
+        }
         try {
             userService.saveUser(user);
         }catch (EmailExistsException e){
-            return "redirect:/signup?error";
+            return "redirect:/signup?emailError";
         }
         return "redirect:/?signedup";
     }
@@ -57,5 +60,5 @@ public class UserController {
     public String home(){
         return "redirect:/?error";
     }
-    
+
 }
