@@ -61,7 +61,7 @@ public class TaskController {
     String saveTask(@RequestParam(value ="taskCompleted", defaultValue = "false") boolean taskCompleted , Principal principal, @Valid Task task, BindingResult bindingResult){
         if( bindingResult.hasErrors())
         {
-            System.out.println(bindingResult);
+            return "redirect:/dashboard/new?error";
         }
         task.setOwner(userService.getUserByEmail(
                 principal.getName()));

@@ -9,6 +9,10 @@
         <h2>Task information</h2>
     </div>
     <form th:object="${task}" action="/dashboard/new" th:action="@{/dashboard/new}" role="form" method="post">
+        <div th:if="${param.error}" class="alert alert-danger">
+            <div align="center"><strong>Invalid data</strong></div>
+            <div align="center"><strong>Try again</strong></div>
+        </div>
         <input type="hidden" th:field="*{id}"/>
         <div class="formdiv">
             <output class="formheader"><b>Header</b></output>
