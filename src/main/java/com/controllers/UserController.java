@@ -52,4 +52,10 @@ public class UserController {
         }
         return "redirect:/?signedup";
     }
+
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home(){
+        return "redirect:/?error";
+    }
+    
 }
