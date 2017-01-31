@@ -2,12 +2,15 @@ package com.models;
 
 import javax.persistence.*;
 import java.util.Collection;
+
 /**
  * Created by aleksei on 23.01.17.
  */
+
 @Entity
 @Table(name = "role")
 public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -40,5 +43,6 @@ public class Role {
     public void setUsers(Collection<User> users) {
             this.users = users;
     }
+
 }
 

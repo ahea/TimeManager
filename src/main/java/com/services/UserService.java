@@ -6,6 +6,7 @@ import com.validation.EmailExistsException;
 /**
  * Created by aleksei on 21.01.17.
  */
+
 public interface UserService {
 
     Iterable<User> getAllUsers();
@@ -23,4 +24,5 @@ public interface UserService {
     void deleteAllUsers();
 
     boolean emailExists(String email);
+
 }

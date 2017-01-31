@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by aleksei on 21.01.17.
  */
+
 @Service
 public class TaskServiceImpl implements TaskService{
 

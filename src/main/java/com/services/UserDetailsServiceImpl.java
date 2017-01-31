@@ -18,6 +18,7 @@ import java.util.Collection;
 /**
  * Created by aleksei on 23.01.17.
  */
+
 @Service
 @Transactional
 public class UserDetailsServiceImpl implements UserDetailsService{
@@ -52,4 +53,5 @@ public class UserDetailsServiceImpl implements UserDetailsService{
             grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
         return grantedAuthorities;
     }
+
 }

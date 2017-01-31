@@ -11,8 +11,10 @@ import com.models.Role;
 /**
  * Created by aleksei on 23.01.17.
  */
+
 @Component
 public class RolesPreloader implements ApplicationListener<ContextRefreshedEvent> {
+
     private RoleRepository roleRepository;
 
     @Autowired
@@ -36,4 +38,5 @@ public class RolesPreloader implements ApplicationListener<ContextRefreshedEvent
         }
         return role;
     }
+
 }

@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -66,7 +64,6 @@ public class TaskController {
         task.setOwner(userService.getUserByEmail(
                 principal.getName()));
         task.setCompleted(taskCompleted);
-        System.out.println(task.getOwner().getEmail());
         taskService.saveTask(task);
         return "redirect:/dashboard";
     }

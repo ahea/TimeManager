@@ -14,6 +14,7 @@ import java.util.Arrays;
 /**
  * Created by aleksei on 21.01.17.
  */
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -82,4 +83,5 @@ public class UserServiceImpl implements UserService {
             return false;
         return true;
     }
+
 }

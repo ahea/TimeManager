@@ -1,11 +1,10 @@
 package com.models;
 
-import org.hibernate.annotations.GeneratorType;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -85,4 +84,5 @@ public class Task {
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }
+
 }

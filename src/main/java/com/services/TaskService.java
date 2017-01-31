@@ -5,6 +5,7 @@ import com.models.Task;
 /**
  * Created by aleksei on 21.01.17.
  */
+
 public interface TaskService {
 
     Iterable<Task> getAllTasks();
@@ -18,4 +19,5 @@ public interface TaskService {
     void deleteTask(Task task);
 
     void deleteAllTasks();
+
 }
